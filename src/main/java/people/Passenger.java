@@ -2,12 +2,14 @@ package people;
 
 public class Passenger {
 
+    public boolean onFlight;
     private String name;
     private Integer numberOfBags;
 
     public Passenger(String name, Integer numberOfBags) {
         this.name = name;
         this.numberOfBags = numberOfBags;
+        this.onFlight = false;
     }
 
     public String getName() {
@@ -18,4 +20,7 @@ public class Passenger {
         return this.numberOfBags;
     }
 
+    public boolean isOnFlight() {
+        return this.onFlight;
+    }
 }

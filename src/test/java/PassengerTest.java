@@ -3,6 +3,7 @@ import org.junit.Test;
 import people.Passenger;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class PassengerTest {
 
@@ -21,6 +22,11 @@ public class PassengerTest {
     @Test
     public void hasBags() {
         assertEquals(2, passenger.getNumberOfBags());
+    }
+
+    @Test
+    public void hasOnFlightProperty() {
+        assertFalse(passenger.isOnFlight());
     }
 
 }

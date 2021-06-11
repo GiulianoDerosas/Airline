@@ -76,4 +76,12 @@ public class Flight {
         }
         return weightAvailable - paxBaggageWeight;
     }
+
+    public void checkedOnFlight(String name) {
+        for (Passenger passenger : this.passengers) {
+            if (passenger.getName().equals(name)) {
+                passenger.onFlight = true;
+            }
+        }
+    }
 }

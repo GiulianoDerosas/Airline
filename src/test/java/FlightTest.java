@@ -93,6 +93,11 @@ public class FlightTest {
         assertEquals(85.84, flight.weightAvailableForBaggage(), 0.0);
     }
 
+//    @Test
+//    public void paxIsOnFlight() {
+//        assertEquals(true, flight.checkedOnFlight(flight.passengers, "Nick"));
+//    }
+
 
 
 
