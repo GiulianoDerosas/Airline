@@ -2,13 +2,13 @@ package aircraft;
 
 public enum Plane {
 
-    BOEING777(320, 172),
-    AIRBUSA380(590, 580);
+    BOEING777(320, 172.00),
+    AIRBUSA380(590, 580.00);
 
     public final int capacity;
-    public final int totalWeight;
+    public final double totalWeight;
 
-    Plane(int capacity, int totalWeight) {
+    Plane(int capacity, double totalWeight) {
         this.capacity = capacity;
         this.totalWeight = totalWeight;
     }
@@ -17,7 +17,7 @@ public enum Plane {
         return this.capacity;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return this.totalWeight;
     }
 }

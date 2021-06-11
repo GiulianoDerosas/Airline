@@ -1,6 +1,5 @@
 package flight;
 
-import jdk.jfr.internal.consumer.RecordingInput;
 import people.CabinCrewMember;
 import people.Passenger;
 import people.Pilot;
@@ -18,6 +17,7 @@ public class Flight {
     private String destination;
     private String departureAirport;
     private String departureTime;
+    private double weight;
 
     public Flight(Plane plane, String flightNumber,String destination, String departureAirport, String departureTime) {
         this.pilots = new ArrayList<Pilot>();
@@ -28,6 +28,7 @@ public class Flight {
         this.destination = destination;
         this. departureAirport = departureAirport;
         this. departureTime = departureTime;
+        this.weight = 0.02;
     }
 
     public void addPilot(Pilot pilot) {
@@ -45,5 +46,34 @@ public class Flight {
     public void addPax(Passenger passenger) {
         if (passengers.size() < this.plane.getCapacity())
         this.passengers.add(passenger);
+    }
+
+//    Adding Flight Management Systems
+
+    public double calculateMaxBaggageWeight() {
+        return this.plane.getWeight() / 2;
+    }
+
+
+    public double calculateBaggageWeight() {
+        double paxBaggageWeight = 0;
+        for (Passenger passenger: this.passengers){
+            paxBaggageWeight += (passenger.getNumberOfBags() * this.weight);
+        }
+        return paxBaggageWeight;
+    }
+
+    public double baggageWeightAllowancePerPax() {
+        return (this.plane.getWeight() / 2) / this.plane.getCapacity();
+    }
+
+    public double weightAvailableForBaggage() {
+        double paxBaggageWeight = 0;
+        double weightAvailable = (this.plane.getWeight() / 2);
+
+        for (Passenger passenger: this.passengers){
+            paxBaggageWeight += (passenger.getNumberOfBags() * this.weight);
+        }
+        return weightAvailable - paxBaggageWeight;
     }
 }

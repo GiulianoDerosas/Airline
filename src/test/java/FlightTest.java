@@ -73,5 +73,27 @@ public class FlightTest {
         assertEquals(315, flight.getAvailableSeats());
     }
 
+    @Test
+    public void checkMaxBaggageWeight() {
+        assertEquals(86.00, flight.calculateMaxBaggageWeight(), 0.0);
+    }
+
+    @Test
+    public void checkBaggageWeight() {
+        assertEquals(0.16, flight.calculateBaggageWeight(), 0.0);
+    }
+
+    @Test
+    public void checkBaggageWeightAllowancePerPax() {
+        assertEquals(0.26875, flight.baggageWeightAllowancePerPax(), 0.0);
+    }
+
+    @Test
+    public void checkWeightAvailableForBaggage() {
+        assertEquals(85.84, flight.weightAvailableForBaggage(), 0.0);
+    }
+
+
+
 
 }
